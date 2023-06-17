@@ -1,19 +1,19 @@
-import { RouteObject } from 'react-router-dom';
+import { Outlet, RouteObject } from 'react-router-dom';
 import App from '../App';
-import Area from '../modules/areas/Area';
 import { areaRoutes } from '../modules/areas/router';
 
 export const routes: RouteObject[] = [
   {
-    element: <App />,
+    element: <Outlet />,
     children: [
       {
         path: '/',
+        element: <App />,
         index: true
       },
       {
         path: '/areas',
-        element: <Area />,
+        element: <Outlet />,
         children: [...areaRoutes]
       }
     ]
