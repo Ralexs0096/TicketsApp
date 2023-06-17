@@ -1,14 +1,21 @@
-import { ReactElement } from 'react';
+import { RouteObject } from 'react-router-dom';
 import App from '../App';
+import Area from '../modules/areas/Area';
+import { areaRoutes } from '../modules/areas/router';
 
-interface Route {
-  path: string;
-  element: ReactElement;
-}
-
-export const routes: Route[] = [
+export const routes: RouteObject[] = [
   {
-    path: '/',
-    element: <App />
+    element: <App />,
+    children: [
+      {
+        path: '/',
+        index: true
+      },
+      {
+        path: '/areas',
+        element: <Area />,
+        children: [...areaRoutes]
+      }
+    ]
   }
 ];
