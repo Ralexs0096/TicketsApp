@@ -1,6 +1,9 @@
 import { Outlet, RouteObject } from 'react-router-dom';
 import App from '../App';
 import { areaRoutes } from '../modules/areas/router';
+import { ticketRoutes } from '../modules/tickets/router';
+import { userRoutes } from '../modules/users/router';
+import { brandRoutes } from '../modules/brands/router';
 
 export const routes: RouteObject[] = [
   {
@@ -15,6 +18,21 @@ export const routes: RouteObject[] = [
         path: '/areas',
         element: <Outlet />,
         children: [...areaRoutes]
+      },
+      {
+        path: '/tickets',
+        element: <Outlet />,
+        children: [...ticketRoutes]
+      },
+      {
+        path: '/users',
+        element: <Outlet />,
+        children: [...userRoutes]
+      },
+      {
+        path: '/brands',
+        element: <Outlet />,
+        children: [...brandRoutes]
       }
     ]
   }
