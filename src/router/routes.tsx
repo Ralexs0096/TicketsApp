@@ -4,10 +4,16 @@ import { areaRoutes } from '../modules/areas/router';
 import { ticketRoutes } from '../modules/tickets/router';
 import { userRoutes } from '../modules/users/router';
 import { brandRoutes } from '../modules/brands/router';
+import AppBarComponent from '../components/AppBarComponent';
 
 export const routes: RouteObject[] = [
   {
-    element: <Outlet />,
+    element: (
+      <>
+        <AppBarComponent />
+        <Outlet />
+      </>
+    ),
     children: [
       {
         path: '/',
