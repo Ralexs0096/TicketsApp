@@ -13,8 +13,14 @@ const Area = () => {
           text="Create"
           onClickFn={() => navigate('/areas/create')}
         />
-        <ButtonComponent text="Update" onClickFn={() => navigate('/')} />
-        <ButtonComponent text="Delete" onClickFn={() => navigate('/')} />
+        <ButtonComponent
+          text="Update"
+          onClickFn={() => navigate('/areas/list')}
+        />
+        <ButtonComponent
+          text="Delete"
+          onClickFn={() => navigate('/areas/list')}
+        />
       </Box>
       <Outlet />
     </CardWrapper>
