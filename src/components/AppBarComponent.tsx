@@ -1,7 +1,7 @@
 import { AccountCircle } from '@mui/icons-material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { AppBar, IconButton, Toolbar } from '@mui/material';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router';
 
 const AppBarComponent = () => {
   const location = useLocation();

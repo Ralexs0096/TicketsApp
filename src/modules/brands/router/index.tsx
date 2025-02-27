@@ -1,4 +1,4 @@
-import { RouteObject } from 'react-router-dom';
+import { RouteObject } from 'react-router';
 import Brand from '../Brand';
 
 export const brandRoutes: RouteObject[] = [

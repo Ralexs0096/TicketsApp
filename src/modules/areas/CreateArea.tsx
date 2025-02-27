@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ModalComponent from '../../components/shared/ModalComponent';
 import CreateAreaForm from './components/CreateAreaForm';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 const CreateArea = () => {
   const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import { Outlet, RouteObject } from 'react-router-dom';
+import { Outlet, RouteObject } from 'react-router';
 import App from '../App';
 import { areaRoutes } from '../modules/areas/router';
 import { ticketRoutes } from '../modules/tickets/router';

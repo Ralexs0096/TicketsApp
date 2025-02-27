@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import CardWrapper from './components/shared/CardWrapper';
 import ButtonComponent from './components/shared/ButtonComponent';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 function App() {
   const navigate = useNavigate();

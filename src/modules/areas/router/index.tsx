@@ -1,4 +1,4 @@
-import { RouteObject } from 'react-router-dom';
+import { RouteObject } from 'react-router';
 import AreaList from '../AreaList';
 import Area from '../Area';
 import CreateArea from '../CreateArea';
