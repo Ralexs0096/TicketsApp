@@ -18,7 +18,8 @@ export const routes: RouteObject[] = [
       {
         path: '/',
         element: <App />,
-        index: true
+        index: true,
+        hydrateFallbackElement: <></>
       },
       {
         path: '/areas',
