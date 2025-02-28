@@ -8,19 +8,20 @@ const AppBarComponent = () => {
   const navigate = useNavigate();
 
   return (
-    <AppBar position="static" color="default">
+    <AppBar position="static" color="transparent">
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <div>
+          {/* Back button is not displayed in the Home */}
           {location.pathname !== '/' && (
             <IconButton
-              size="large"
+              size="medium"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={() => navigate(-1)}
               color="inherit"
             >
-              <ArrowBackIosNewIcon />
+              <ArrowBackIosNewIcon fontSize="small" />
             </IconButton>
           )}
         </div>

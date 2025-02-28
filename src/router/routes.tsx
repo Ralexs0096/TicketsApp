@@ -5,14 +5,15 @@ import { ticketRoutes } from '../modules/tickets/router';
 import { userRoutes } from '../modules/users/router';
 import { brandRoutes } from '../modules/brands/router';
 import AppBarComponent from '../components/AppBarComponent';
+import AppLayout from '../components/AppLayout';
 
 export const routes: RouteObject[] = [
   {
     element: (
-      <>
+      <AppLayout>
         <AppBarComponent />
         <Outlet />
-      </>
+      </AppLayout>
     ),
     children: [
       {
