@@ -16,9 +16,8 @@ export const routes: RouteObject[] = [
     ),
     children: [
       {
-        path: '/',
-        element: <App />,
-        index: true
+        index: true,
+        element: <App />
       },
       {
         path: '/areas',
