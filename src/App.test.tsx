@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import App from './App';
-import render from './router/testRenderer';
+import render from './testRenderer';
 
 it('App feature tour', async () => {
   render(<App />);
