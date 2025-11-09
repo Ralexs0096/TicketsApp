@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom/client';
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { routes } from './router/routes';
-import { ThemeProvider } from '@emotion/react';
 import theme from './theme';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 
 const router = createBrowserRouter(routes);
 
