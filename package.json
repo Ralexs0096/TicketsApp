@@ -19,8 +19,7 @@
     "@tanstack/react-router": "^1.134.18",
     "@tanstack/react-router-devtools": "^1.134.18",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.12.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@tanstack/router-plugin": "^1.134.18",
