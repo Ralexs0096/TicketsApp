@@ -22,6 +22,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.25.2",
     "@tanstack/router-plugin": "^1.134.18",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
