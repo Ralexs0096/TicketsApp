@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
+    "regen:api": "npx openapi-generator-cli generate -i http://localhost:8080/documentation/json -g typescript-fetch -o src/api",
     "test": "vitest"
   },
   "dependencies": {
