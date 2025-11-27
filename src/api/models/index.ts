@@ -11,6 +11,7 @@ export * from './Error3';
 export * from './Error4';
 export * from './Error5';
 export * from './Error6';
+export * from './FetchUserReply';
 export * from './InternalServerError';
 export * from './InvalidArea';
 export * from './InvalidBrand';

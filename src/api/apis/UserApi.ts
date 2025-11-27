@@ -18,6 +18,8 @@ import type {
   CreateUser,
   Error1,
   Error2,
+  FetchUserReply,
+  InternalServerError,
   InvalidUser,
   InvalidUser1,
   NotFound,
@@ -30,6 +32,10 @@ import {
     Error1ToJSON,
     Error2FromJSON,
     Error2ToJSON,
+    FetchUserReplyFromJSON,
+    FetchUserReplyToJSON,
+    InternalServerErrorFromJSON,
+    InternalServerErrorToJSON,
     InvalidUserFromJSON,
     InvalidUserToJSON,
     InvalidUser1FromJSON,
@@ -46,6 +52,10 @@ export interface CreateUserRequest {
 
 export interface DeleteUserRequest {
     id: string;
+}
+
+export interface FetchUserRequest {
+    userId: string;
 }
 
 export interface UpdateUserRequest {
@@ -155,6 +165,43 @@ export class UserApi extends runtime.BaseAPI {
      */
     async fetchAllUsers(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<object>> {
         const response = await this.fetchAllUsersRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Returns a user by ID or the user currently logged in.
+     */
+    async fetchUserRaw(requestParameters: FetchUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchUserReply>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling fetchUser().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/u/{userId}`;
+        urlPath = urlPath.replace(`{${"userId"}}`, encodeURIComponent(String(requestParameters['userId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FetchUserReplyFromJSON(jsonValue));
+    }
+
+    /**
+     * Returns a user by ID or the user currently logged in.
+     */
+    async fetchUser(requestParameters: FetchUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FetchUserReply> {
+        const response = await this.fetchUserRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

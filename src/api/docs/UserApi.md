@@ -7,6 +7,7 @@ All URIs are relative to *http://localhost*
 | [**createUser**](UserApi.md#createuser) | **POST** /user | Create a new User |
 | [**deleteUser**](UserApi.md#deleteuser) | **DELETE** /user/{id} | Delete a User |
 | [**fetchAllUsers**](UserApi.md#fetchallusers) | **GET** /user | Fetch All Users |
+| [**fetchUser**](UserApi.md#fetchuser) | **GET** /u/{userId} | Returns a user by ID or the user currently logged in. |
 | [**updateUser**](UserApi.md#updateuser) | **PUT** /user/{id} | Allows you to update the properties of a user specified by ID. |
 
 
@@ -200,6 +201,73 @@ No authorization required
 | **200** | Default Response |  -  |
 | **404** | Invalid or missing Brand data. |  -  |
 | **500** | An unknown error occurred while attempting to retrieve users data. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## fetchUser
+
+> FetchUserReply fetchUser(userId)
+
+Returns a user by ID or the user currently logged in.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  UserApi,
+} from '';
+import type { FetchUserRequest } from '';
+
+async function example() {
+  console.log("🚀 Testing  SDK...");
+  const api = new UserApi();
+
+  const body = {
+    // string | The unique identifier for a User.
+    userId: userId_example,
+  } satisfies FetchUserRequest;
+
+  try {
+    const data = await api.fetchUser(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | `string` | The unique identifier for a User. | [Defaults to `undefined`] |
+
+### Return type
+
+[**FetchUserReply**](FetchUserReply.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `*/*`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Default Response |  -  |
+| **404** | User not found. |  -  |
+| **500** | An unknown error occurred. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

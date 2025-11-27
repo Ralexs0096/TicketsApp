@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 apis/AreaApi.ts
 apis/AuthApi.ts
 apis/BrandApi.ts
@@ -18,6 +17,7 @@ docs/Error3.md
 docs/Error4.md
 docs/Error5.md
 docs/Error6.md
+docs/FetchUserReply.md
 docs/InternalServerError.md
 docs/InvalidArea.md
 docs/InvalidBrand.md
@@ -43,6 +43,7 @@ models/Error3.ts
 models/Error4.ts
 models/Error5.ts
 models/Error6.ts
+models/FetchUserReply.ts
 models/InternalServerError.ts
 models/InvalidArea.ts
 models/InvalidBrand.ts
