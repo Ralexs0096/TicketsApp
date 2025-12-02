@@ -4,7 +4,6 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { RouterProvider } from '@tanstack/react-router';
 import theme from './theme';
 import { queryClient, router } from './router';
-import { AuthProvider } from './providers/auth';
 import { QueryClientProvider } from '@tanstack/react-query';
 
 declare global {
@@ -18,13 +17,11 @@ window.__TANSTACK_QUERY_CLIENT__ = queryClient;
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <AuthProvider>
-        <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
-        </QueryClientProvider>
-      </AuthProvider>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
