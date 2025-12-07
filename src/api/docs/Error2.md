@@ -1,7 +1,7 @@
 
 # Error2
 
-An unknown error occurred when trying to create users.
+An unknown error occurred while attempting to retrieve users data.
 
 ## Properties
 

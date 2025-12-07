@@ -14,7 +14,7 @@
 
 import { mapValues } from '../runtime';
 /**
- * An unknown error occurred when trying to delete a brand.
+ * An unknown error occurred when trying to update brands.
  * @export
  * @interface Error6
  */
@@ -24,13 +24,14 @@ export interface Error6 {
      * @type {object}
      * @memberof Error6
      */
-    error?: object;
+    error: object;
 }
 
 /**
  * Check if a given object implements the Error6 interface.
  */
 export function instanceOfError6(value: object): value is Error6 {
+    if (!('error' in value) || value['error'] === undefined) return false;
     return true;
 }
 
@@ -44,7 +45,7 @@ export function Error6FromJSONTyped(json: any, ignoreDiscriminator: boolean): Er
     }
     return {
         
-        'error': json['error'] == null ? undefined : json['error'],
+        'error': json['error'],
     };
 }
 

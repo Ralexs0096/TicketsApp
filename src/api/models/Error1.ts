@@ -14,7 +14,7 @@
 
 import { mapValues } from '../runtime';
 /**
- * An unknown error occurred while attempting to retrieve users data.
+ * An unknown error occurred while attempting to retrieve the data.
  * @export
  * @interface Error1
  */

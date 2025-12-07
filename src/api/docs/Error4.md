@@ -1,7 +1,7 @@
 
 # Error4
 
-An unknown error occurred when trying to create a Brand.
+An unknown error occurred when trying to fetch brands.
 
 ## Properties
 

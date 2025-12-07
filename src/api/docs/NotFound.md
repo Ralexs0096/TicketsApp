@@ -1,7 +1,7 @@
 
 # NotFound
 
-User not found.
+Invalid or missing data.
 
 ## Properties
 

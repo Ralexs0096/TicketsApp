@@ -1,23 +1,22 @@
 
-# Error1
+# FetchAllTicketsReply
 
-An unknown error occurred while attempting to retrieve the data.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`error` | object
+`tickets` | Array&lt;object&gt;
 
 ## Example
 
 ```typescript
-import type { Error1 } from ''
+import type { FetchAllTicketsReply } from ''
 
 // TODO: Update the object below with actual values
 const example = {
-  "error": null,
-} satisfies Error1
+  "tickets": null,
+} satisfies FetchAllTicketsReply
 
 console.log(example)
 
@@ -26,7 +25,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as Error1
+const exampleParsed = JSON.parse(exampleJSON) as FetchAllTicketsReply
 console.log(exampleParsed)
 ```
 

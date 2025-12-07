@@ -1,6 +1,7 @@
 apis/AreaApi.ts
 apis/AuthApi.ts
 apis/BrandApi.ts
+apis/TicketApi.ts
 apis/UserApi.ts
 apis/index.ts
 docs/Area.md
@@ -17,6 +18,8 @@ docs/Error3.md
 docs/Error4.md
 docs/Error5.md
 docs/Error6.md
+docs/Error7.md
+docs/FetchAllTicketsReply.md
 docs/FetchUserReply.md
 docs/InternalServerError.md
 docs/InvalidArea.md
@@ -29,6 +32,7 @@ docs/LoginReplyUser.md
 docs/LoginRequest.md
 docs/ModelError.md
 docs/NotFound.md
+docs/TicketApi.md
 docs/User.md
 docs/UserApi.md
 index.ts
@@ -43,6 +47,8 @@ models/Error3.ts
 models/Error4.ts
 models/Error5.ts
 models/Error6.ts
+models/Error7.ts
+models/FetchAllTicketsReply.ts
 models/FetchUserReply.ts
 models/InternalServerError.ts
 models/InvalidArea.ts

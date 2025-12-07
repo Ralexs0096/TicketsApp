@@ -1,7 +1,7 @@
 
 # Error3
 
-An unknown error occurred when trying to fetch brands.
+An unknown error occurred when trying to create users.
 
 ## Properties
 

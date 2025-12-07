@@ -1,7 +1,7 @@
 
-# Error1
+# Error7
 
-An unknown error occurred while attempting to retrieve the data.
+An unknown error occurred when trying to delete a brand.
 
 ## Properties
 
@@ -12,12 +12,12 @@ Name | Type
 ## Example
 
 ```typescript
-import type { Error1 } from ''
+import type { Error7 } from ''
 
 // TODO: Update the object below with actual values
 const example = {
   "error": null,
-} satisfies Error1
+} satisfies Error7
 
 console.log(example)
 
@@ -26,7 +26,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as Error1
+const exampleParsed = JSON.parse(exampleJSON) as Error7
 console.log(exampleParsed)
 ```
 

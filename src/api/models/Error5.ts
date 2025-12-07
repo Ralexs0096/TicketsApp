@@ -14,7 +14,7 @@
 
 import { mapValues } from '../runtime';
 /**
- * An unknown error occurred when trying to update brands.
+ * An unknown error occurred when trying to create a Brand.
  * @export
  * @interface Error5
  */

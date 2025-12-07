@@ -14,7 +14,7 @@
 
 import { mapValues } from '../runtime';
 /**
- * An unknown error occurred when trying to fetch brands.
+ * An unknown error occurred when trying to create users.
  * @export
  * @interface Error3
  */

@@ -14,7 +14,7 @@
 
 import { mapValues } from '../runtime';
 /**
- * User not found.
+ * Invalid or missing data.
  * @export
  * @interface NotFound
  */

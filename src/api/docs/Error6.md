@@ -1,7 +1,7 @@
 
 # Error6
 
-An unknown error occurred when trying to delete a brand.
+An unknown error occurred when trying to update brands.
 
 ## Properties
 

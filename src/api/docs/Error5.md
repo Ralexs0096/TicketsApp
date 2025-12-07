@@ -1,7 +1,7 @@
 
 # Error5
 
-An unknown error occurred when trying to update brands.
+An unknown error occurred when trying to create a Brand.
 
 ## Properties
 

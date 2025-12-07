@@ -16,8 +16,8 @@
 import * as runtime from '../runtime';
 import type {
   CreateUser,
-  Error1,
   Error2,
+  Error3,
   FetchUserReply,
   InternalServerError,
   InvalidUser,
@@ -28,10 +28,10 @@ import type {
 import {
     CreateUserFromJSON,
     CreateUserToJSON,
-    Error1FromJSON,
-    Error1ToJSON,
     Error2FromJSON,
     Error2ToJSON,
+    Error3FromJSON,
+    Error3ToJSON,
     FetchUserReplyFromJSON,
     FetchUserReplyToJSON,
     InternalServerErrorFromJSON,
