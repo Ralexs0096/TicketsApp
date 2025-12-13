@@ -1,4 +1,11 @@
-import { Configuration, UserApi, BrandApi, AuthApi, AreaApi } from './api';
+import {
+  Configuration,
+  UserApi,
+  BrandApi,
+  AuthApi,
+  AreaApi,
+  TicketApi
+} from './api';
 
 const config = new Configuration({
   basePath: import.meta.env.VITE_API_URL,
@@ -12,5 +19,6 @@ export const apiClient = {
   user: new UserApi(config),
   brand: new BrandApi(config),
   area: new AreaApi(config),
-  auth: new AuthApi(config)
+  auth: new AuthApi(config),
+  ticket: new TicketApi(config)
 };
