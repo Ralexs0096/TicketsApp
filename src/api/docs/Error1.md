@@ -1,13 +1,13 @@
 
 # Error1
 
-An unknown error occurred while attempting to retrieve the data.
+An unknown error occurred when trying to fetch brands.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`error` | object
+`error` | [NotFoundError](NotFoundError.md)
 
 ## Example
 

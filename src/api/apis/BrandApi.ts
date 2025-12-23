@@ -17,10 +17,10 @@ import * as runtime from '../runtime';
 import type {
   Brand,
   CreateBrand,
+  Error1,
+  Error2,
+  Error3,
   Error4,
-  Error5,
-  Error6,
-  Error7,
   InvalidBrand,
   InvalidBrand1,
   NotFound,
@@ -30,14 +30,14 @@ import {
     BrandToJSON,
     CreateBrandFromJSON,
     CreateBrandToJSON,
+    Error1FromJSON,
+    Error1ToJSON,
+    Error2FromJSON,
+    Error2ToJSON,
+    Error3FromJSON,
+    Error3ToJSON,
     Error4FromJSON,
     Error4ToJSON,
-    Error5FromJSON,
-    Error5ToJSON,
-    Error6FromJSON,
-    Error6ToJSON,
-    Error7FromJSON,
-    Error7ToJSON,
     InvalidBrandFromJSON,
     InvalidBrandToJSON,
     InvalidBrand1FromJSON,
@@ -47,7 +47,7 @@ import {
 } from '../models/index';
 
 export interface CreateBrandRequest {
-    body?: CreateBrand;
+    createBrand: CreateBrand;
 }
 
 export interface DeleteBrandRequest {
@@ -56,7 +56,7 @@ export interface DeleteBrandRequest {
 
 export interface UpdateBrandRequest {
     id: string;
-    body?: Brand;
+    brand: Brand;
 }
 
 /**
@@ -68,7 +68,14 @@ export class BrandApi extends runtime.BaseAPI {
      * Endpoint for creating new brands. Expects an array of brand names in the request body.
      * Create a new Brand.
      */
-    async createBrandRaw(requestParameters: CreateBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<string>>> {
+    async createBrandRaw(requestParameters: CreateBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['createBrand'] == null) {
+            throw new runtime.RequiredError(
+                'createBrand',
+                'Required parameter "createBrand" was null or undefined when calling createBrand().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -83,17 +90,21 @@ export class BrandApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateBrandToJSON(requestParameters['body']),
+            body: CreateBrandToJSON(requestParameters['createBrand']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
     }
 
     /**
      * Endpoint for creating new brands. Expects an array of brand names in the request body.
      * Create a new Brand.
      */
-    async createBrand(requestParameters: CreateBrandRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<string>> {
+    async createBrand(requestParameters: CreateBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.createBrandRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -102,7 +113,7 @@ export class BrandApi extends runtime.BaseAPI {
      * Endpoint for deleting a brand.
      * Delete a Brand
      */
-    async deleteBrandRaw(requestParameters: DeleteBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteBrandRaw(requestParameters: DeleteBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -125,22 +136,21 @@ export class BrandApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
      * Endpoint for deleting a brand.
      * Delete a Brand
      */
-    async deleteBrand(requestParameters: DeleteBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
-        const response = await this.deleteBrandRaw(requestParameters, initOverrides);
-        return await response.value();
+    async deleteBrand(requestParameters: DeleteBrandRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteBrandRaw(requestParameters, initOverrides);
     }
 
     /**
      * Fetch All Brands
      */
-    async fetchAllBrandsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<string>>> {
+    async fetchAllBrandsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -155,15 +165,14 @@ export class BrandApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
      * Fetch All Brands
      */
-    async fetchAllBrands(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<string>> {
-        const response = await this.fetchAllBrandsRaw(initOverrides);
-        return await response.value();
+    async fetchAllBrands(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.fetchAllBrandsRaw(initOverrides);
     }
 
     /**
@@ -174,6 +183,13 @@ export class BrandApi extends runtime.BaseAPI {
             throw new runtime.RequiredError(
                 'id',
                 'Required parameter "id" was null or undefined when calling updateBrand().'
+            );
+        }
+
+        if (requestParameters['brand'] == null) {
+            throw new runtime.RequiredError(
+                'brand',
+                'Required parameter "brand" was null or undefined when calling updateBrand().'
             );
         }
 
@@ -192,7 +208,7 @@ export class BrandApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: BrandToJSON(requestParameters['body']),
+            body: BrandToJSON(requestParameters['brand']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BrandFromJSON(jsonValue));

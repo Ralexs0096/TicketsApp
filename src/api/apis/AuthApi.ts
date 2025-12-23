@@ -32,7 +32,7 @@ import {
 } from '../models/index';
 
 export interface LoginOperationRequest {
-    body?: LoginRequest;
+    loginRequest: LoginRequest;
 }
 
 /**
@@ -44,6 +44,13 @@ export class AuthApi extends runtime.BaseAPI {
      * Allow a user to start session.
      */
     async loginRaw(requestParameters: LoginOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LoginReply>> {
+        if (requestParameters['loginRequest'] == null) {
+            throw new runtime.RequiredError(
+                'loginRequest',
+                'Required parameter "loginRequest" was null or undefined when calling login().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -58,7 +65,7 @@ export class AuthApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: LoginRequestToJSON(requestParameters['body']),
+            body: LoginRequestToJSON(requestParameters['loginRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => LoginReplyFromJSON(jsonValue));
@@ -67,7 +74,7 @@ export class AuthApi extends runtime.BaseAPI {
     /**
      * Allow a user to start session.
      */
-    async login(requestParameters: LoginOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LoginReply> {
+    async login(requestParameters: LoginOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LoginReply> {
         const response = await this.loginRaw(requestParameters, initOverrides);
         return await response.value();
     }

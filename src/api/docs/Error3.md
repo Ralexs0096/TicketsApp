@@ -1,13 +1,13 @@
 
 # Error3
 
-An unknown error occurred when trying to create users.
+An unknown error occurred when trying to update brands.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`error` | object
+`error` | [NotFoundError](NotFoundError.md)
 
 ## Example
 

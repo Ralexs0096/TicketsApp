@@ -1,13 +1,13 @@
 
 # Error2
 
-An unknown error occurred while attempting to retrieve users data.
+An unknown error occurred when trying to create a Brand.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`error` | object
+`error` | [NotFoundError](NotFoundError.md)
 
 ## Example
 

@@ -1,6 +1,6 @@
 # TicketApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://localhost:8080*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -54,7 +54,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **ticketNumber** | `string` | Filter tickets by ticket number | [Optional] [Defaults to `undefined`] |
-| **limit** | `number` | Maximum number of tickets to return. | [Optional] [Defaults to `25.0`] |
+| **limit** | `number` | Maximum number of tickets to return. | [Optional] [Defaults to `25`] |
 | **date** | `Date` | Filter tickets by date (YYYY-MM-DD)  | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -68,15 +68,13 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Default Response |  -  |
-| **404** | Invalid or missing data. |  -  |
-| **500** | An unknown error occurred while attempting to retrieve the data. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

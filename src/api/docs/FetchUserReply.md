@@ -6,7 +6,7 @@
 
 Name | Type
 ------------ | -------------
-`user` | [LoginReplyUser](LoginReplyUser.md)
+`user` | [FetchUserReplyUser](FetchUserReplyUser.md)
 
 ## Example
 

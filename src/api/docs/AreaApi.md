@@ -1,6 +1,6 @@
 # AreaApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://localhost:8080*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -13,7 +13,7 @@ All URIs are relative to *http://localhost*
 
 ## createArea
 
-> createArea(body)
+> createArea(createArea)
 
 Create a new Area.
 
@@ -31,8 +31,8 @@ async function example() {
   const api = new AreaApi();
 
   const body = {
-    // CreateArea (optional)
-    body: ...,
+    // CreateArea
+    createArea: ...,
   } satisfies CreateAreaRequest;
 
   try {
@@ -52,7 +52,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [CreateArea](CreateArea.md) |  | [Optional] |
+| **createArea** | [CreateArea](CreateArea.md) |  | |
 
 ### Return type
 
@@ -64,8 +64,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 
 ### HTTP response details
@@ -79,7 +79,7 @@ No authorization required
 
 ## deleteArea
 
-> Area deleteArea(id, body)
+> Area deleteArea(id, area)
 
 Delete an Area or some Areas at the same time
 
@@ -99,8 +99,8 @@ async function example() {
   const body = {
     // string | Unique identifier for the area.
     id: id_example,
-    // Area (optional)
-    body: ...,
+    // Area
+    area: ...,
   } satisfies DeleteAreaRequest;
 
   try {
@@ -121,7 +121,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | `string` | Unique identifier for the area. | [Defaults to `undefined`] |
-| **body** | [Area](Area.md) |  | [Optional] |
+| **area** | [Area](Area.md) |  | |
 
 ### Return type
 
@@ -133,8 +133,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 
 ### HTTP response details
@@ -149,7 +149,7 @@ No authorization required
 
 ## fetchAllAreas
 
-> Array&lt;string&gt; fetchAllAreas()
+> FetchAllAreasReply fetchAllAreas()
 
 Fetch All Areas
 
@@ -184,7 +184,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Array<string>**
+[**FetchAllAreasReply**](FetchAllAreasReply.md)
 
 ### Authorization
 
@@ -193,20 +193,21 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Default Response |  -  |
+| **500** | An unknown error occurred while attempting to retrieve the data. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
 ## updateArea
 
-> Area updateArea(id, body)
+> Area updateArea(id, area)
 
 Update an Area.
 
@@ -226,8 +227,8 @@ async function example() {
   const body = {
     // string | Unique identifier for the area.
     id: id_example,
-    // Area (optional)
-    body: ...,
+    // Area
+    area: ...,
   } satisfies UpdateAreaRequest;
 
   try {
@@ -248,7 +249,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | `string` | Unique identifier for the area. | [Defaults to `undefined`] |
-| **body** | [Area](Area.md) |  | [Optional] |
+| **area** | [Area](Area.md) |  | |
 
 ### Return type
 
@@ -260,8 +261,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 
 ### HTTP response details

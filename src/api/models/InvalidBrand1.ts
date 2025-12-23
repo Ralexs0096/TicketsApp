@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { NotFoundError } from './NotFoundError';
+import {
+    NotFoundErrorFromJSON,
+    NotFoundErrorFromJSONTyped,
+    NotFoundErrorToJSON,
+    NotFoundErrorToJSONTyped,
+} from './NotFoundError';
+
 /**
  * Invalid or missing Brand.
  * @export
@@ -21,10 +29,10 @@ import { mapValues } from '../runtime';
 export interface InvalidBrand1 {
     /**
      * 
-     * @type {object}
+     * @type {NotFoundError}
      * @memberof InvalidBrand1
      */
-    error?: object;
+    error?: NotFoundError;
 }
 
 /**
@@ -44,7 +52,7 @@ export function InvalidBrand1FromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'error': json['error'] == null ? undefined : json['error'],
+        'error': json['error'] == null ? undefined : NotFoundErrorFromJSON(json['error']),
     };
 }
 
@@ -59,7 +67,7 @@ export function InvalidBrand1ToJSONTyped(value?: InvalidBrand1 | null, ignoreDis
 
     return {
         
-        'error': value['error'],
+        'error': NotFoundErrorToJSON(value['error']),
     };
 }
 

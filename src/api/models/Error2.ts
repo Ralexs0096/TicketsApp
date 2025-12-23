@@ -13,18 +13,26 @@
  */
 
 import { mapValues } from '../runtime';
+import type { NotFoundError } from './NotFoundError';
+import {
+    NotFoundErrorFromJSON,
+    NotFoundErrorFromJSONTyped,
+    NotFoundErrorToJSON,
+    NotFoundErrorToJSONTyped,
+} from './NotFoundError';
+
 /**
- * An unknown error occurred while attempting to retrieve users data.
+ * An unknown error occurred when trying to create a Brand.
  * @export
  * @interface Error2
  */
 export interface Error2 {
     /**
      * 
-     * @type {object}
+     * @type {NotFoundError}
      * @memberof Error2
      */
-    error: object;
+    error: NotFoundError;
 }
 
 /**
@@ -45,7 +53,7 @@ export function Error2FromJSONTyped(json: any, ignoreDiscriminator: boolean): Er
     }
     return {
         
-        'error': json['error'],
+        'error': NotFoundErrorFromJSON(json['error']),
     };
 }
 
@@ -60,7 +68,7 @@ export function Error2ToJSONTyped(value?: Error2 | null, ignoreDiscriminator: bo
 
     return {
         
-        'error': value['error'],
+        'error': NotFoundErrorToJSON(value['error']),
     };
 }
 

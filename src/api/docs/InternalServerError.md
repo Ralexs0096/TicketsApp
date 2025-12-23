@@ -7,7 +7,7 @@ An unknown error occurred.
 
 Name | Type
 ------------ | -------------
-`error` | object
+`error` | [NotFoundError](NotFoundError.md)
 
 ## Example
 

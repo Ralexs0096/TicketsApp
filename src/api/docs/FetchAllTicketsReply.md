@@ -6,7 +6,7 @@
 
 Name | Type
 ------------ | -------------
-`tickets` | Array&lt;object&gt;
+`tickets` | [Array&lt;FetchAllTicketsReplyTicketsInner&gt;](FetchAllTicketsReplyTicketsInner.md)
 
 ## Example
 

@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateUserUsersInner } from './CreateUserUsersInner';
+import {
+    CreateUserUsersInnerFromJSON,
+    CreateUserUsersInnerFromJSONTyped,
+    CreateUserUsersInnerToJSON,
+    CreateUserUsersInnerToJSONTyped,
+} from './CreateUserUsersInner';
+
 /**
  * 
  * @export
@@ -21,10 +29,10 @@ import { mapValues } from '../runtime';
 export interface CreateUser {
     /**
      * 
-     * @type {Array<object>}
+     * @type {Array<CreateUserUsersInner>}
      * @memberof CreateUser
      */
-    users: Array<object>;
+    users: Array<CreateUserUsersInner>;
 }
 
 /**
@@ -45,7 +53,7 @@ export function CreateUserFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'users': json['users'],
+        'users': ((json['users'] as Array<any>).map(CreateUserUsersInnerFromJSON)),
     };
 }
 
@@ -60,7 +68,7 @@ export function CreateUserToJSONTyped(value?: CreateUser | null, ignoreDiscrimin
 
     return {
         
-        'users': value['users'],
+        'users': ((value['users'] as Array<any>).map(CreateUserUsersInnerToJSON)),
     };
 }
 

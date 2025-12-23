@@ -6,7 +6,7 @@
 
 Name | Type
 ------------ | -------------
-`areas` | Array&lt;object&gt;
+`areas` | [Array&lt;CreateAreaAreasInner&gt;](CreateAreaAreasInner.md)
 
 ## Example
 

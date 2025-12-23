@@ -7,7 +7,7 @@ An unknown error occurred when trying to delete areas.
 
 Name | Type
 ------------ | -------------
-`error` | object
+`error` | [NotFoundError](NotFoundError.md)
 
 ## Example
 

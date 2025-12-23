@@ -1,6 +1,6 @@
 # BrandApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://localhost:8080*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -13,7 +13,7 @@ All URIs are relative to *http://localhost*
 
 ## createBrand
 
-> Array&lt;string&gt; createBrand(body)
+> any createBrand(createBrand)
 
 Create a new Brand.
 
@@ -33,8 +33,8 @@ async function example() {
   const api = new BrandApi();
 
   const body = {
-    // CreateBrand (optional)
-    body: ...,
+    // CreateBrand
+    createBrand: ...,
   } satisfies CreateBrandRequest;
 
   try {
@@ -54,11 +54,11 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [CreateBrand](CreateBrand.md) |  | [Optional] |
+| **createBrand** | [CreateBrand](CreateBrand.md) |  | |
 
 ### Return type
 
-**Array<string>**
+**any**
 
 ### Authorization
 
@@ -66,8 +66,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 
 ### HTTP response details
@@ -81,7 +81,7 @@ No authorization required
 
 ## deleteBrand
 
-> object deleteBrand(id)
+> deleteBrand(id)
 
 Delete a Brand
 
@@ -126,7 +126,7 @@ example().catch(console.error);
 
 ### Return type
 
-**object**
+`void` (Empty response body)
 
 ### Authorization
 
@@ -135,13 +135,12 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Default Response |  -  |
 | **404** | Invalid or missing Brand. |  -  |
 | **500** | An unknown error occurred when trying to delete a brand. |  -  |
 
@@ -150,7 +149,7 @@ No authorization required
 
 ## fetchAllBrands
 
-> Array&lt;string&gt; fetchAllBrands()
+> fetchAllBrands()
 
 Fetch All Brands
 
@@ -185,7 +184,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Array<string>**
+`void` (Empty response body)
 
 ### Authorization
 
@@ -194,13 +193,12 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Default Response |  -  |
 | **404** | Invalid or missing Brand data. |  -  |
 | **500** | An unknown error occurred when trying to fetch brands. |  -  |
 
@@ -209,7 +207,7 @@ No authorization required
 
 ## updateBrand
 
-> Brand updateBrand(id, body)
+> Brand updateBrand(id, brand)
 
 Update a Brand.
 
@@ -229,8 +227,8 @@ async function example() {
   const body = {
     // string | Unique identifier for the brand.
     id: id_example,
-    // Brand (optional)
-    body: ...,
+    // Brand
+    brand: ...,
   } satisfies UpdateBrandRequest;
 
   try {
@@ -251,7 +249,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | `string` | Unique identifier for the brand. | [Defaults to `undefined`] |
-| **body** | [Brand](Brand.md) |  | [Optional] |
+| **brand** | [Brand](Brand.md) |  | |
 
 ### Return type
 
@@ -263,8 +261,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 
 ### HTTP response details

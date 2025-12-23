@@ -1,6 +1,6 @@
 # AuthApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://localhost:8080*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 
 ## login
 
-> LoginReply login(body)
+> LoginReply login(loginRequest)
 
 Allow a user to start session.
 
@@ -28,8 +28,8 @@ async function example() {
   const api = new AuthApi();
 
   const body = {
-    // LoginRequest (optional)
-    body: ...,
+    // LoginRequest
+    loginRequest: ...,
   } satisfies LoginOperationRequest;
 
   try {
@@ -49,7 +49,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [LoginRequest](LoginRequest.md) |  | [Optional] |
+| **loginRequest** | [LoginRequest](LoginRequest.md) |  | |
 
 ### Return type
 
@@ -61,8 +61,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 
 ### HTTP response details

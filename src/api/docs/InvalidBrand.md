@@ -7,7 +7,7 @@ Invalid or missing Brand data.
 
 Name | Type
 ------------ | -------------
-`error` | object
+`error` | [NotFoundError](NotFoundError.md)
 
 ## Example
 

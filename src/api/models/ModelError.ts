@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { NotFoundError } from './NotFoundError';
+import {
+    NotFoundErrorFromJSON,
+    NotFoundErrorFromJSONTyped,
+    NotFoundErrorToJSON,
+    NotFoundErrorToJSONTyped,
+} from './NotFoundError';
+
 /**
  * An unknown error occurred when trying to delete areas.
  * @export
@@ -21,10 +29,10 @@ import { mapValues } from '../runtime';
 export interface ModelError {
     /**
      * 
-     * @type {object}
+     * @type {NotFoundError}
      * @memberof ModelError
      */
-    error: object;
+    error: NotFoundError;
 }
 
 /**
@@ -45,7 +53,7 @@ export function ModelErrorFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'error': json['error'],
+        'error': NotFoundErrorFromJSON(json['error']),
     };
 }
 
@@ -60,7 +68,7 @@ export function ModelErrorToJSONTyped(value?: ModelError | null, ignoreDiscrimin
 
     return {
         
-        'error': value['error'],
+        'error': NotFoundErrorToJSON(value['error']),
     };
 }
 

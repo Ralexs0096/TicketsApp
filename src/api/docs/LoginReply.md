@@ -7,7 +7,7 @@
 Name | Type
 ------------ | -------------
 `success` | boolean
-`user` | [LoginReplyUser](LoginReplyUser.md)
+`user` | [FetchUserReplyUser](FetchUserReplyUser.md)
 
 ## Example
 

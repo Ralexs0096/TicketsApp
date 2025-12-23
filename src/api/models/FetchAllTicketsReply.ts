@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { FetchAllTicketsReplyTicketsInner } from './FetchAllTicketsReplyTicketsInner';
+import {
+    FetchAllTicketsReplyTicketsInnerFromJSON,
+    FetchAllTicketsReplyTicketsInnerFromJSONTyped,
+    FetchAllTicketsReplyTicketsInnerToJSON,
+    FetchAllTicketsReplyTicketsInnerToJSONTyped,
+} from './FetchAllTicketsReplyTicketsInner';
+
 /**
  * 
  * @export
@@ -21,10 +29,10 @@ import { mapValues } from '../runtime';
 export interface FetchAllTicketsReply {
     /**
      * 
-     * @type {Array<object>}
+     * @type {Array<FetchAllTicketsReplyTicketsInner>}
      * @memberof FetchAllTicketsReply
      */
-    tickets: Array<object>;
+    tickets: Array<FetchAllTicketsReplyTicketsInner>;
 }
 
 /**
@@ -45,7 +53,7 @@ export function FetchAllTicketsReplyFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'tickets': json['tickets'],
+        'tickets': ((json['tickets'] as Array<any>).map(FetchAllTicketsReplyTicketsInnerFromJSON)),
     };
 }
 
@@ -60,7 +68,7 @@ export function FetchAllTicketsReplyToJSONTyped(value?: FetchAllTicketsReply | n
 
     return {
         
-        'tickets': value['tickets'],
+        'tickets': ((value['tickets'] as Array<any>).map(FetchAllTicketsReplyTicketsInnerToJSON)),
     };
 }
 

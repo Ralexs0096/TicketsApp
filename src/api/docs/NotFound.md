@@ -1,13 +1,13 @@
 
 # NotFound
 
-Invalid or missing data.
+Invalid or missing Brand data.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`error` | object
+`error` | [NotFoundError](NotFoundError.md)
 
 ## Example
 

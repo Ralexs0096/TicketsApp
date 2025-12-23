@@ -1,6 +1,6 @@
 # UserApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://localhost:8080*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -14,7 +14,7 @@ All URIs are relative to *http://localhost*
 
 ## createUser
 
-> Array&lt;string&gt; createUser(body)
+> any createUser(createUser)
 
 Create a new User
 
@@ -32,8 +32,8 @@ async function example() {
   const api = new UserApi();
 
   const body = {
-    // CreateUser (optional)
-    body: ...,
+    // CreateUser
+    createUser: ...,
   } satisfies CreateUserRequest;
 
   try {
@@ -53,11 +53,11 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | [CreateUser](CreateUser.md) |  | [Optional] |
+| **createUser** | [CreateUser](CreateUser.md) |  | |
 
 ### Return type
 
-**Array<string>**
+**any**
 
 ### Authorization
 
@@ -65,22 +65,22 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | User(s) successfully created |  -  |
-| **500** | An unknown error occurred when trying to create users. |  -  |
+| **500** | An unknown error occurred while attempting to retrieve the data. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
 ## deleteUser
 
-> object deleteUser(id)
+> any deleteUser(id)
 
 Delete a User
 
@@ -125,7 +125,7 @@ example().catch(console.error);
 
 ### Return type
 
-**object**
+**any**
 
 ### Authorization
 
@@ -134,21 +134,21 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Default Response |  -  |
-| **404** | Invalid or missing User. |  -  |
+| **404** | Invalid or missing data. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
 ## fetchAllUsers
 
-> Array&lt;object&gt; fetchAllUsers()
+> FetchAllUsers fetchAllUsers()
 
 Fetch All Users
 
@@ -183,7 +183,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Array<object>**
+[**FetchAllUsers**](FetchAllUsers.md)
 
 ### Authorization
 
@@ -192,15 +192,15 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Default Response |  -  |
-| **404** | Invalid or missing Brand data. |  -  |
-| **500** | An unknown error occurred while attempting to retrieve users data. |  -  |
+| **404** | Invalid or missing data. |  -  |
+| **500** | An unknown error occurred while attempting to retrieve the data. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -259,22 +259,22 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Default Response |  -  |
-| **404** | User not found. |  -  |
-| **500** | An unknown error occurred. |  -  |
+| **404** | Invalid or missing data. |  -  |
+| **500** | An unknown error occurred while attempting to retrieve the data. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
 ## updateUser
 
-> User updateUser(id, body)
+> User updateUser(id, user)
 
 Allows you to update the properties of a user specified by ID.
 
@@ -294,8 +294,8 @@ async function example() {
   const body = {
     // string | Unique identifier for the user.
     id: id_example,
-    // User (optional)
-    body: ...,
+    // User
+    user: ...,
   } satisfies UpdateUserRequest;
 
   try {
@@ -316,7 +316,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | `string` | Unique identifier for the user. | [Defaults to `undefined`] |
-| **body** | [User](User.md) |  | [Optional] |
+| **user** | [User](User.md) |  | |
 
 ### Return type
 
@@ -328,15 +328,15 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: `*/*`
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Default Response |  -  |
-| **404** | Invalid or missing User data. |  -  |
+| **404** | Invalid or missing data. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

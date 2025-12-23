@@ -6,7 +6,7 @@
 
 Name | Type
 ------------ | -------------
-`users` | Array&lt;object&gt;
+`users` | [Array&lt;CreateUserUsersInner&gt;](CreateUserUsersInner.md)
 
 ## Example
 

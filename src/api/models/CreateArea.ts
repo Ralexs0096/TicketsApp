@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateAreaAreasInner } from './CreateAreaAreasInner';
+import {
+    CreateAreaAreasInnerFromJSON,
+    CreateAreaAreasInnerFromJSONTyped,
+    CreateAreaAreasInnerToJSON,
+    CreateAreaAreasInnerToJSONTyped,
+} from './CreateAreaAreasInner';
+
 /**
  * 
  * @export
@@ -21,10 +29,10 @@ import { mapValues } from '../runtime';
 export interface CreateArea {
     /**
      * 
-     * @type {Array<object>}
+     * @type {Array<CreateAreaAreasInner>}
      * @memberof CreateArea
      */
-    areas: Array<object>;
+    areas: Array<CreateAreaAreasInner>;
 }
 
 /**
@@ -45,7 +53,7 @@ export function CreateAreaFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'areas': json['areas'],
+        'areas': ((json['areas'] as Array<any>).map(CreateAreaAreasInnerFromJSON)),
     };
 }
 
@@ -60,7 +68,7 @@ export function CreateAreaToJSONTyped(value?: CreateArea | null, ignoreDiscrimin
 
     return {
         
-        'areas': value['areas'],
+        'areas': ((value['areas'] as Array<any>).map(CreateAreaAreasInnerToJSON)),
     };
 }
 

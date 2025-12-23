@@ -7,7 +7,7 @@ Invalid or missing Area data.
 
 Name | Type
 ------------ | -------------
-`error` | object
+`error` | [NotFoundError](NotFoundError.md)
 
 ## Example
 

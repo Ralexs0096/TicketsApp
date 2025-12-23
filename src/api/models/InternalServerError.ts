@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { NotFoundError } from './NotFoundError';
+import {
+    NotFoundErrorFromJSON,
+    NotFoundErrorFromJSONTyped,
+    NotFoundErrorToJSON,
+    NotFoundErrorToJSONTyped,
+} from './NotFoundError';
+
 /**
  * An unknown error occurred.
  * @export
@@ -21,10 +29,10 @@ import { mapValues } from '../runtime';
 export interface InternalServerError {
     /**
      * 
-     * @type {object}
+     * @type {NotFoundError}
      * @memberof InternalServerError
      */
-    error: object;
+    error: NotFoundError;
 }
 
 /**
@@ -45,7 +53,7 @@ export function InternalServerErrorFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'error': json['error'],
+        'error': NotFoundErrorFromJSON(json['error']),
     };
 }
 
@@ -60,7 +68,7 @@ export function InternalServerErrorToJSONTyped(value?: InternalServerError | nul
 
     return {
         
-        'error': value['error'],
+        'error': NotFoundErrorToJSON(value['error']),
     };
 }
 

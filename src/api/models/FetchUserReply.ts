@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { LoginReplyUser } from './LoginReplyUser';
+import type { FetchUserReplyUser } from './FetchUserReplyUser';
 import {
-    LoginReplyUserFromJSON,
-    LoginReplyUserFromJSONTyped,
-    LoginReplyUserToJSON,
-    LoginReplyUserToJSONTyped,
-} from './LoginReplyUser';
+    FetchUserReplyUserFromJSON,
+    FetchUserReplyUserFromJSONTyped,
+    FetchUserReplyUserToJSON,
+    FetchUserReplyUserToJSONTyped,
+} from './FetchUserReplyUser';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface FetchUserReply {
     /**
      * 
-     * @type {LoginReplyUser}
+     * @type {FetchUserReplyUser}
      * @memberof FetchUserReply
      */
-    user?: LoginReplyUser;
+    user?: FetchUserReplyUser;
 }
 
 /**
@@ -52,7 +52,7 @@ export function FetchUserReplyFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'user': json['user'] == null ? undefined : LoginReplyUserFromJSON(json['user']),
+        'user': json['user'] == null ? undefined : FetchUserReplyUserFromJSON(json['user']),
     };
 }
 
@@ -67,7 +67,7 @@ export function FetchUserReplyToJSONTyped(value?: FetchUserReply | null, ignoreD
 
     return {
         
-        'user': LoginReplyUserToJSON(value['user']),
+        'user': FetchUserReplyUserToJSON(value['user']),
     };
 }
 

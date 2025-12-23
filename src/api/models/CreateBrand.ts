@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateBrandBrandsInner } from './CreateBrandBrandsInner';
+import {
+    CreateBrandBrandsInnerFromJSON,
+    CreateBrandBrandsInnerFromJSONTyped,
+    CreateBrandBrandsInnerToJSON,
+    CreateBrandBrandsInnerToJSONTyped,
+} from './CreateBrandBrandsInner';
+
 /**
  * 
  * @export
@@ -21,10 +29,10 @@ import { mapValues } from '../runtime';
 export interface CreateBrand {
     /**
      * 
-     * @type {Array<object>}
+     * @type {Array<CreateBrandBrandsInner>}
      * @memberof CreateBrand
      */
-    brands: Array<object>;
+    brands: Array<CreateBrandBrandsInner>;
 }
 
 /**
@@ -45,7 +53,7 @@ export function CreateBrandFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'brands': json['brands'],
+        'brands': ((json['brands'] as Array<any>).map(CreateBrandBrandsInnerFromJSON)),
     };
 }
 
@@ -60,7 +68,7 @@ export function CreateBrandToJSONTyped(value?: CreateBrand | null, ignoreDiscrim
 
     return {
         
-        'brands': value['brands'],
+        'brands': ((value['brands'] as Array<any>).map(CreateBrandBrandsInnerToJSON)),
     };
 }
 

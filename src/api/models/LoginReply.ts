@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { LoginReplyUser } from './LoginReplyUser';
+import type { FetchUserReplyUser } from './FetchUserReplyUser';
 import {
-    LoginReplyUserFromJSON,
-    LoginReplyUserFromJSONTyped,
-    LoginReplyUserToJSON,
-    LoginReplyUserToJSONTyped,
-} from './LoginReplyUser';
+    FetchUserReplyUserFromJSON,
+    FetchUserReplyUserFromJSONTyped,
+    FetchUserReplyUserToJSON,
+    FetchUserReplyUserToJSONTyped,
+} from './FetchUserReplyUser';
 
 /**
  * 
@@ -35,10 +35,10 @@ export interface LoginReply {
     success: boolean;
     /**
      * 
-     * @type {LoginReplyUser}
+     * @type {FetchUserReplyUser}
      * @memberof LoginReply
      */
-    user?: LoginReplyUser;
+    user?: FetchUserReplyUser;
 }
 
 /**
@@ -60,7 +60,7 @@ export function LoginReplyFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     return {
         
         'success': json['success'],
-        'user': json['user'] == null ? undefined : LoginReplyUserFromJSON(json['user']),
+        'user': json['user'] == null ? undefined : FetchUserReplyUserFromJSON(json['user']),
     };
 }
 
@@ -76,7 +76,7 @@ export function LoginReplyToJSONTyped(value?: LoginReply | null, ignoreDiscrimin
     return {
         
         'success': value['success'],
-        'user': LoginReplyUserToJSON(value['user']),
+        'user': FetchUserReplyUserToJSON(value['user']),
     };
 }
 

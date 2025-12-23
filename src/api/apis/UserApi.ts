@@ -16,30 +16,21 @@
 import * as runtime from '../runtime';
 import type {
   CreateUser,
-  Error2,
-  Error3,
+  FetchAllUsers,
   FetchUserReply,
-  InternalServerError,
-  InvalidUser,
-  InvalidUser1,
+  InternalError,
   NotFound,
   User,
 } from '../models/index';
 import {
     CreateUserFromJSON,
     CreateUserToJSON,
-    Error2FromJSON,
-    Error2ToJSON,
-    Error3FromJSON,
-    Error3ToJSON,
+    FetchAllUsersFromJSON,
+    FetchAllUsersToJSON,
     FetchUserReplyFromJSON,
     FetchUserReplyToJSON,
-    InternalServerErrorFromJSON,
-    InternalServerErrorToJSON,
-    InvalidUserFromJSON,
-    InvalidUserToJSON,
-    InvalidUser1FromJSON,
-    InvalidUser1ToJSON,
+    InternalErrorFromJSON,
+    InternalErrorToJSON,
     NotFoundFromJSON,
     NotFoundToJSON,
     UserFromJSON,
@@ -47,7 +38,7 @@ import {
 } from '../models/index';
 
 export interface CreateUserRequest {
-    body?: CreateUser;
+    createUser: CreateUser;
 }
 
 export interface DeleteUserRequest {
@@ -60,7 +51,7 @@ export interface FetchUserRequest {
 
 export interface UpdateUserRequest {
     id: string;
-    body?: User;
+    user: User;
 }
 
 /**
@@ -71,7 +62,14 @@ export class UserApi extends runtime.BaseAPI {
     /**
      * Create a new User
      */
-    async createUserRaw(requestParameters: CreateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<string>>> {
+    async createUserRaw(requestParameters: CreateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['createUser'] == null) {
+            throw new runtime.RequiredError(
+                'createUser',
+                'Required parameter "createUser" was null or undefined when calling createUser().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -86,16 +84,20 @@ export class UserApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateUserToJSON(requestParameters['body']),
+            body: CreateUserToJSON(requestParameters['createUser']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
     }
 
     /**
      * Create a new User
      */
-    async createUser(requestParameters: CreateUserRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<string>> {
+    async createUser(requestParameters: CreateUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.createUserRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -104,7 +106,7 @@ export class UserApi extends runtime.BaseAPI {
      * Endpoint for deleting an user.
      * Delete a User
      */
-    async deleteUserRaw(requestParameters: DeleteUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteUserRaw(requestParameters: DeleteUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -127,14 +129,18 @@ export class UserApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
     }
 
     /**
      * Endpoint for deleting an user.
      * Delete a User
      */
-    async deleteUser(requestParameters: DeleteUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async deleteUser(requestParameters: DeleteUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.deleteUserRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -142,7 +148,7 @@ export class UserApi extends runtime.BaseAPI {
     /**
      * Fetch All Users
      */
-    async fetchAllUsersRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<object>>> {
+    async fetchAllUsersRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchAllUsers>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -157,13 +163,13 @@ export class UserApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => FetchAllUsersFromJSON(jsonValue));
     }
 
     /**
      * Fetch All Users
      */
-    async fetchAllUsers(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<object>> {
+    async fetchAllUsers(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FetchAllUsers> {
         const response = await this.fetchAllUsersRaw(initOverrides);
         return await response.value();
     }
@@ -216,6 +222,13 @@ export class UserApi extends runtime.BaseAPI {
             );
         }
 
+        if (requestParameters['user'] == null) {
+            throw new runtime.RequiredError(
+                'user',
+                'Required parameter "user" was null or undefined when calling updateUser().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -231,7 +244,7 @@ export class UserApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: UserToJSON(requestParameters['body']),
+            body: UserToJSON(requestParameters['user']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => UserFromJSON(jsonValue));

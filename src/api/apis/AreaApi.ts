@@ -17,6 +17,8 @@ import * as runtime from '../runtime';
 import type {
   Area,
   CreateArea,
+  FetchAllAreasReply,
+  InternalError,
   InvalidArea,
 } from '../models/index';
 import {
@@ -24,22 +26,26 @@ import {
     AreaToJSON,
     CreateAreaFromJSON,
     CreateAreaToJSON,
+    FetchAllAreasReplyFromJSON,
+    FetchAllAreasReplyToJSON,
+    InternalErrorFromJSON,
+    InternalErrorToJSON,
     InvalidAreaFromJSON,
     InvalidAreaToJSON,
 } from '../models/index';
 
 export interface CreateAreaRequest {
-    body?: CreateArea;
+    createArea: CreateArea;
 }
 
 export interface DeleteAreaRequest {
     id: string;
-    body?: Area;
+    area: Area;
 }
 
 export interface UpdateAreaRequest {
     id: string;
-    body?: Area;
+    area: Area;
 }
 
 /**
@@ -51,6 +57,13 @@ export class AreaApi extends runtime.BaseAPI {
      * Create a new Area.
      */
     async createAreaRaw(requestParameters: CreateAreaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['createArea'] == null) {
+            throw new runtime.RequiredError(
+                'createArea',
+                'Required parameter "createArea" was null or undefined when calling createArea().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -65,7 +78,7 @@ export class AreaApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateAreaToJSON(requestParameters['body']),
+            body: CreateAreaToJSON(requestParameters['createArea']),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -74,7 +87,7 @@ export class AreaApi extends runtime.BaseAPI {
     /**
      * Create a new Area.
      */
-    async createArea(requestParameters: CreateAreaRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async createArea(requestParameters: CreateAreaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.createAreaRaw(requestParameters, initOverrides);
     }
 
@@ -86,6 +99,13 @@ export class AreaApi extends runtime.BaseAPI {
             throw new runtime.RequiredError(
                 'id',
                 'Required parameter "id" was null or undefined when calling deleteArea().'
+            );
+        }
+
+        if (requestParameters['area'] == null) {
+            throw new runtime.RequiredError(
+                'area',
+                'Required parameter "area" was null or undefined when calling deleteArea().'
             );
         }
 
@@ -104,7 +124,7 @@ export class AreaApi extends runtime.BaseAPI {
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
-            body: AreaToJSON(requestParameters['body']),
+            body: AreaToJSON(requestParameters['area']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AreaFromJSON(jsonValue));
@@ -121,7 +141,7 @@ export class AreaApi extends runtime.BaseAPI {
     /**
      * Fetch All Areas
      */
-    async fetchAllAreasRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<string>>> {
+    async fetchAllAreasRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchAllAreasReply>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -136,13 +156,13 @@ export class AreaApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => FetchAllAreasReplyFromJSON(jsonValue));
     }
 
     /**
      * Fetch All Areas
      */
-    async fetchAllAreas(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<string>> {
+    async fetchAllAreas(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FetchAllAreasReply> {
         const response = await this.fetchAllAreasRaw(initOverrides);
         return await response.value();
     }
@@ -155,6 +175,13 @@ export class AreaApi extends runtime.BaseAPI {
             throw new runtime.RequiredError(
                 'id',
                 'Required parameter "id" was null or undefined when calling updateArea().'
+            );
+        }
+
+        if (requestParameters['area'] == null) {
+            throw new runtime.RequiredError(
+                'area',
+                'Required parameter "area" was null or undefined when calling updateArea().'
             );
         }
 
@@ -173,7 +200,7 @@ export class AreaApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: AreaToJSON(requestParameters['body']),
+            body: AreaToJSON(requestParameters['area']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AreaFromJSON(jsonValue));

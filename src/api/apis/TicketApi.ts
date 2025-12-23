@@ -15,17 +15,11 @@
 
 import * as runtime from '../runtime';
 import type {
-  Error1,
   FetchAllTicketsReply,
-  NotFound,
 } from '../models/index';
 import {
-    Error1FromJSON,
-    Error1ToJSON,
     FetchAllTicketsReplyFromJSON,
     FetchAllTicketsReplyToJSON,
-    NotFoundFromJSON,
-    NotFoundToJSON,
 } from '../models/index';
 
 export interface FetchAllTicketsRequest {
@@ -54,7 +48,7 @@ export class TicketApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['date'] != null) {
-            queryParameters['date'] = (requestParameters['date'] as any).toISOString().substring(0,10);
+            queryParameters['date'] = requestParameters['date'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

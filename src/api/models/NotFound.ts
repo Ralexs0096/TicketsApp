@@ -13,18 +13,26 @@
  */
 
 import { mapValues } from '../runtime';
+import type { NotFoundError } from './NotFoundError';
+import {
+    NotFoundErrorFromJSON,
+    NotFoundErrorFromJSONTyped,
+    NotFoundErrorToJSON,
+    NotFoundErrorToJSONTyped,
+} from './NotFoundError';
+
 /**
- * Invalid or missing data.
+ * Invalid or missing Brand data.
  * @export
  * @interface NotFound
  */
 export interface NotFound {
     /**
      * 
-     * @type {object}
+     * @type {NotFoundError}
      * @memberof NotFound
      */
-    error: object;
+    error: NotFoundError;
 }
 
 /**
@@ -45,7 +53,7 @@ export function NotFoundFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     }
     return {
         
-        'error': json['error'],
+        'error': NotFoundErrorFromJSON(json['error']),
     };
 }
 
@@ -60,7 +68,7 @@ export function NotFoundToJSONTyped(value?: NotFound | null, ignoreDiscriminator
 
     return {
         
-        'error': value['error'],
+        'error': NotFoundErrorToJSON(value['error']),
     };
 }
 

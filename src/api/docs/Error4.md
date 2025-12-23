@@ -1,13 +1,13 @@
 
 # Error4
 
-An unknown error occurred when trying to fetch brands.
+An unknown error occurred when trying to delete a brand.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`error` | object
+`error` | [NotFoundError](NotFoundError.md)
 
 ## Example
 

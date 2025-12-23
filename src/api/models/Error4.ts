@@ -13,25 +13,32 @@
  */
 
 import { mapValues } from '../runtime';
+import type { NotFoundError } from './NotFoundError';
+import {
+    NotFoundErrorFromJSON,
+    NotFoundErrorFromJSONTyped,
+    NotFoundErrorToJSON,
+    NotFoundErrorToJSONTyped,
+} from './NotFoundError';
+
 /**
- * An unknown error occurred when trying to fetch brands.
+ * An unknown error occurred when trying to delete a brand.
  * @export
  * @interface Error4
  */
 export interface Error4 {
     /**
      * 
-     * @type {object}
+     * @type {NotFoundError}
      * @memberof Error4
      */
-    error: object;
+    error?: NotFoundError;
 }
 
 /**
  * Check if a given object implements the Error4 interface.
  */
 export function instanceOfError4(value: object): value is Error4 {
-    if (!('error' in value) || value['error'] === undefined) return false;
     return true;
 }
 
@@ -45,7 +52,7 @@ export function Error4FromJSONTyped(json: any, ignoreDiscriminator: boolean): Er
     }
     return {
         
-        'error': json['error'],
+        'error': json['error'] == null ? undefined : NotFoundErrorFromJSON(json['error']),
     };
 }
 
@@ -60,7 +67,7 @@ export function Error4ToJSONTyped(value?: Error4 | null, ignoreDiscriminator: bo
 
     return {
         
-        'error': value['error'],
+        'error': NotFoundErrorToJSON(value['error']),
     };
 }
 

@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { NotFoundError } from './NotFoundError';
+import {
+    NotFoundErrorFromJSON,
+    NotFoundErrorFromJSONTyped,
+    NotFoundErrorToJSON,
+    NotFoundErrorToJSONTyped,
+} from './NotFoundError';
+
 /**
  * Invalid or missing Area data.
  * @export
@@ -21,10 +29,10 @@ import { mapValues } from '../runtime';
 export interface InvalidArea {
     /**
      * 
-     * @type {object}
+     * @type {NotFoundError}
      * @memberof InvalidArea
      */
-    error: object;
+    error: NotFoundError;
 }
 
 /**
@@ -45,7 +53,7 @@ export function InvalidAreaFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'error': json['error'],
+        'error': NotFoundErrorFromJSON(json['error']),
     };
 }
 
@@ -60,7 +68,7 @@ export function InvalidAreaToJSONTyped(value?: InvalidArea | null, ignoreDiscrim
 
     return {
         
-        'error': value['error'],
+        'error': NotFoundErrorToJSON(value['error']),
     };
 }
 

@@ -6,7 +6,7 @@
 
 Name | Type
 ------------ | -------------
-`brands` | Array&lt;object&gt;
+`brands` | [Array&lt;CreateBrandBrandsInner&gt;](CreateBrandBrandsInner.md)
 
 ## Example
 
