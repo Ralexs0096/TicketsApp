@@ -75,6 +75,8 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Default Response |  -  |
+| **404** | Invalid or missing data. |  -  |
+| **500** | An unknown error occurred while attempting to retrieve the data. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

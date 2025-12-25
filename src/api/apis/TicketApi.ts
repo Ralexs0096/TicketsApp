@@ -16,10 +16,16 @@
 import * as runtime from '../runtime';
 import type {
   FetchAllTicketsReply,
+  InternalError,
+  NotFound,
 } from '../models/index';
 import {
     FetchAllTicketsReplyFromJSON,
     FetchAllTicketsReplyToJSON,
+    InternalErrorFromJSON,
+    InternalErrorToJSON,
+    NotFoundFromJSON,
+    NotFoundToJSON,
 } from '../models/index';
 
 export interface FetchAllTicketsRequest {
