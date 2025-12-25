@@ -1,37 +1,62 @@
-import { CSSProperties } from 'react';
-import { Box, Modal } from '@mui/material';
-
-const style = {
-  position: 'absolute' as 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '1px solid #fdfdfd',
-  borderRadius: 1,
-  boxShadow: 12,
-  p: 2
-};
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  IconButton,
+  Typography,
+  Box,
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import { ReactNode } from "react";
 
 interface ModalComponentProps {
-  openModal: boolean;
-  closeModal: () => void;
-  children: JSX.Element;
-  styles?: CSSProperties;
+  open: boolean;
+  onClose: () => void;
+  title?: string;
+  children: ReactNode;
+  actions?: ReactNode;
+  maxWidth?: "xs" | "sm" | "md" | "lg" | "xl";
+  fullWidth?: boolean;
+  disableBackdropClick?: boolean;
 }
 
-const ModalComponent: React.FC<ModalComponentProps> = ({
-  openModal,
-  closeModal,
+export const ModalComponent = ({
+  open,
+  onClose,
+  title,
   children,
-  styles
-}) => {
+  actions,
+  maxWidth = "sm",
+  fullWidth = true,
+  disableBackdropClick = false,
+}: ModalComponentProps) => {
   return (
-    <Modal open={openModal} onClose={closeModal}>
-      <Box sx={{ ...style, ...styles }}>{children}</Box>
-    </Modal>
+    <Dialog
+      open={open}
+      onClose={disableBackdropClick ? undefined : onClose}
+      maxWidth={maxWidth}
+      fullWidth={fullWidth}
+    >
+      {title && (
+        <DialogTitle>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Typography variant="h6">{title}</Typography>
+
+            <IconButton onClick={onClose} size="small">
+              <CloseIcon />
+            </IconButton>
+          </Box>
+        </DialogTitle>
+      )}
+
+      <DialogContent dividers>{children}</DialogContent>
+
+      {actions && <DialogActions>{actions}</DialogActions>}
+    </Dialog>
   );
 };
-
-export default ModalComponent;
