@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-DATE=$(date +"%Y-%m-%d")
-MESSAGE="chore(swagger): update – $DATE"
+TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
+MESSAGE="chore(swagger): update – $TIMESTAMP"
 
 git commit -m "$MESSAGE"
 
