@@ -1,4 +1,4 @@
-import { Card, Box, Typography, Chip } from '@mui/material';
+import { Card, Box, Typography, Chip } from "@mui/material";
 
 interface Props {
   ticket: {
@@ -12,9 +12,14 @@ const TicketCard: React.FC<Props> = ({ ticket, areas }) => {
   return (
     <Card
       variant="outlined"
-      sx={{ padding: 2, borderRadius: 4, width: 'calc(50% - 8px)' }}
+      sx={{
+        padding: 2,
+        borderRadius: 4,
+        minHeight: "130px",
+        width: "calc(50% - 8px)",
+      }}
     >
-      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <Typography component="span" variant="body2">
           {ticket.code}
         </Typography>
@@ -22,7 +27,7 @@ const TicketCard: React.FC<Props> = ({ ticket, areas }) => {
           {ticket.createdAt.toLocaleDateString()}
         </Typography>
       </Box>
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', marginTop: 2 }}>
+      <Box sx={{ display: "flex", flexWrap: "wrap", marginTop: 2 }}>
         {areas.map((area) => (
           <Chip label={area} variant="filled" sx={{ margin: 0.2 }}></Chip>
         ))}
