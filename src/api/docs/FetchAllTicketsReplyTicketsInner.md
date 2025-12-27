@@ -10,6 +10,7 @@ Name | Type
 `cutNumber` | number
 `brand` | string
 `style` | string
+`createdAt` | Date
 `areas` | [Array&lt;FetchAllTicketsReplyTicketsInnerAreasInner&gt;](FetchAllTicketsReplyTicketsInnerAreasInner.md)
 
 ## Example
@@ -23,6 +24,7 @@ const example = {
   "cutNumber": null,
   "brand": null,
   "style": null,
+  "createdAt": null,
   "areas": null,
 } satisfies FetchAllTicketsReplyTicketsInner
 
