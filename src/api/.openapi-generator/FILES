@@ -26,6 +26,7 @@ docs/FetchAllAreasReply.md
 docs/FetchAllTicketsQueryString.md
 docs/FetchAllTicketsReply.md
 docs/FetchAllTicketsReplyTicketsInner.md
+docs/FetchAllTicketsReplyTicketsInnerAreasInner.md
 docs/FetchAllUsers.md
 docs/FetchUserParamsJson.md
 docs/FetchUserReply.md
@@ -66,6 +67,7 @@ models/FetchAllAreasReply.ts
 models/FetchAllTicketsQueryString.ts
 models/FetchAllTicketsReply.ts
 models/FetchAllTicketsReplyTicketsInner.ts
+models/FetchAllTicketsReplyTicketsInnerAreasInner.ts
 models/FetchAllUsers.ts
 models/FetchUserParamsJson.ts
 models/FetchUserReply.ts

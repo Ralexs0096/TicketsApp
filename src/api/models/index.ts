@@ -19,6 +19,7 @@ export * from './FetchAllAreasReply';
 export * from './FetchAllTicketsQueryString';
 export * from './FetchAllTicketsReply';
 export * from './FetchAllTicketsReplyTicketsInner';
+export * from './FetchAllTicketsReplyTicketsInnerAreasInner';
 export * from './FetchAllUsers';
 export * from './FetchUserParamsJson';
 export * from './FetchUserReply';

@@ -1,5 +1,5 @@
 
-# FetchAllTicketsReplyTicketsInner
+# FetchAllTicketsReplyTicketsInnerAreasInner
 
 
 ## Properties
@@ -7,24 +7,18 @@
 Name | Type
 ------------ | -------------
 `id` | number
-`cutNumber` | number
-`brand` | string
-`style` | string
-`areas` | [Array&lt;FetchAllTicketsReplyTicketsInnerAreasInner&gt;](FetchAllTicketsReplyTicketsInnerAreasInner.md)
+`name` | string
 
 ## Example
 
 ```typescript
-import type { FetchAllTicketsReplyTicketsInner } from ''
+import type { FetchAllTicketsReplyTicketsInnerAreasInner } from ''
 
 // TODO: Update the object below with actual values
 const example = {
   "id": null,
-  "cutNumber": null,
-  "brand": null,
-  "style": null,
-  "areas": null,
-} satisfies FetchAllTicketsReplyTicketsInner
+  "name": null,
+} satisfies FetchAllTicketsReplyTicketsInnerAreasInner
 
 console.log(example)
 
@@ -33,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as FetchAllTicketsReplyTicketsInner
+const exampleParsed = JSON.parse(exampleJSON) as FetchAllTicketsReplyTicketsInnerAreasInner
 console.log(exampleParsed)
 ```
 
