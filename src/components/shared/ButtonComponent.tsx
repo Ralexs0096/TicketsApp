@@ -11,7 +11,7 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({
   text,
   heightButton = 140,
   widthButton = 140,
-  onClickFn
+  onClickFn,
 }) => {
   return (
     <Button
@@ -21,7 +21,7 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({
         height: heightButton,
         width: widthButton,
         ml: 2,
-        mt: 2
+        mt: 2,
       }}
     >
       {text}

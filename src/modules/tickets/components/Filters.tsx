@@ -5,7 +5,7 @@ import {
   FormControl,
   InputLabel,
   Select,
-  MenuItem
+  MenuItem,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
@@ -16,7 +16,7 @@ const Filters = () => {
     <Box
       sx={{
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
       }}
     >
       <TextField
@@ -30,7 +30,7 @@ const Filters = () => {
             <InputAdornment position="start">
               <SearchIcon />
             </InputAdornment>
-          )
+          ),
         }}
         sx={{
           bgcolor: '#f4f4f4',
@@ -38,15 +38,15 @@ const Filters = () => {
           width: '100%',
           '& .MuiOutlinedInput-root': {
             '& fieldset': {
-              border: 0
+              border: 0,
             },
             '&:hover fieldset': {
-              borderColor: '#bbb'
+              borderColor: '#bbb',
             },
             '&.Mui-focused fieldset': {
-              borderColor: '#999'
-            }
-          }
+              borderColor: '#999',
+            },
+          },
         }}
       />
       <FormControl
@@ -60,8 +60,8 @@ const Filters = () => {
           '& .MuiOutlinedInput-notchedOutline': { border: 0 },
           '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: '#bbb' },
           '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#999'
-          }
+            borderColor: '#999',
+          },
         }}
       >
         <InputLabel id="area-filter-label">Areas</InputLabel>

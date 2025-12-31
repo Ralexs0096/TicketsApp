@@ -1,5 +1,5 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
-import { useState } from "react";
+import { createFileRoute, redirect } from '@tanstack/react-router';
+import { useState } from 'react';
 import {
   TextField,
   Button,
@@ -7,13 +7,13 @@ import {
   Typography,
   Alert,
   CircularProgress,
-} from "@mui/material";
-import { authQueryOptions } from "../queries/auth";
-import { apiClient } from "../apiClient";
+} from '@mui/material';
+import { authQueryOptions } from '../queries/auth';
+import { apiClient } from '../apiClient';
 
-const fallback = "/" as const;
+const fallback = '/' as const;
 
-export const Route = createFileRoute("/login")({
+export const Route = createFileRoute('/login')({
   validateSearch: (search) => ({
     redirect: (search.redirect as string) || fallback,
   }),
@@ -34,15 +34,15 @@ function LoginComponent() {
   const navigate = Route.useNavigate();
   const { queryClient } = Route.useRouteContext();
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setError("");
+    setError('');
 
     try {
       await apiClient.auth.login({
@@ -53,17 +53,17 @@ function LoginComponent() {
       });
 
       await queryClient.invalidateQueries({
-        queryKey: ["auth", "session"],
+        queryKey: ['auth', 'session'],
       });
 
       await queryClient.fetchQuery(authQueryOptions);
 
       navigate({
-        to: "/",
+        to: '/',
         replace: true,
       });
     } catch {
-      setError("Invalid username or password");
+      setError('Invalid username or password');
     } finally {
       setIsLoading(false);
     }
@@ -72,10 +72,10 @@ function LoginComponent() {
   return (
     <Box
       sx={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
       <Box
@@ -83,10 +83,10 @@ function LoginComponent() {
         onSubmit={handleSubmit}
         sx={{
           maxWidth: 400,
-          width: "100%",
+          width: '100%',
           p: 3,
-          border: "1px solid",
-          borderColor: "divider",
+          border: '1px solid',
+          borderColor: 'divider',
           borderRadius: 2,
           boxShadow: 1,
         }}
@@ -132,7 +132,7 @@ function LoginComponent() {
           disabled={isLoading}
           startIcon={isLoading ? <CircularProgress size={20} /> : null}
         >
-          {isLoading ? "Signing in..." : "Sign In"}
+          {isLoading ? 'Signing in...' : 'Sign In'}
         </Button>
       </Box>
     </Box>

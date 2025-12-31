@@ -6,21 +6,21 @@ import {
   TableCell,
   TableContainer,
   TableHead,
-  TableRow
+  TableRow,
 } from '@mui/material';
 
 const AreaList = () => {
   // TODO: call endpoint to get Areas
-  const [areas, setAreas] = useState<{ name: string }[]>([
+  const [areas] = useState<{ name: string }[]>([
     {
-      name: 'Corte'
+      name: 'Corte',
     },
     {
-      name: 'Manga'
+      name: 'Manga',
     },
     {
-      name: 'Empaque'
-    }
+      name: 'Empaque',
+    },
   ]);
 
   return (

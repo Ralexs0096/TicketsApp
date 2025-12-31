@@ -1,12 +1,10 @@
 # AuthApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to _http://localhost:8080_
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
+| Method                                 | HTTP request    | Description                    |
+| -------------------------------------- | --------------- | ------------------------------ |
 | [**login**](AuthApi.md#loginoperation) | **POST** /login | Allow a user to start session. |
-
-
 
 ## login
 
@@ -46,10 +44,9 @@ example().catch(console.error);
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **loginRequest** | [LoginRequest](LoginRequest.md) |  | |
+| Name             | Type                            | Description | Notes |
+| ---------------- | ------------------------------- | ----------- | ----- |
+| **loginRequest** | [LoginRequest](LoginRequest.md) |             |       |
 
 ### Return type
 
@@ -64,13 +61,12 @@ No authorization required
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Default Response |  -  |
-| **404** | User not found. |  -  |
-| **500** | An unknown error occurred. |  -  |
+
+| Status code | Description                | Response headers |
+| ----------- | -------------------------- | ---------------- |
+| **200**     | Default Response           | -                |
+| **404**     | User not found.            | -                |
+| **500**     | An unknown error occurred. | -                |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-

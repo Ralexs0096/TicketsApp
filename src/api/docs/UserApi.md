@@ -1,16 +1,14 @@
 # UserApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to _http://localhost:8080_
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**createUser**](UserApi.md#createuser) | **POST** /user | Create a new User |
-| [**deleteUser**](UserApi.md#deleteuser) | **DELETE** /user/{id} | Delete a User |
-| [**fetchAllUsers**](UserApi.md#fetchallusers) | **GET** /user | Fetch All Users |
-| [**fetchUser**](UserApi.md#fetchuser) | **GET** /u/{userId} | Returns a user by ID or the user currently logged in. |
-| [**updateUser**](UserApi.md#updateuser) | **PUT** /user/{id} | Allows you to update the properties of a user specified by ID. |
-
-
+| Method                                        | HTTP request          | Description                                                    |
+| --------------------------------------------- | --------------------- | -------------------------------------------------------------- |
+| [**createUser**](UserApi.md#createuser)       | **POST** /user        | Create a new User                                              |
+| [**deleteUser**](UserApi.md#deleteuser)       | **DELETE** /user/{id} | Delete a User                                                  |
+| [**fetchAllUsers**](UserApi.md#fetchallusers) | **GET** /user         | Fetch All Users                                                |
+| [**fetchUser**](UserApi.md#fetchuser)         | **GET** /u/{userId}   | Returns a user by ID or the user currently logged in.          |
+| [**updateUser**](UserApi.md#updateuser)       | **PUT** /user/{id}    | Allows you to update the properties of a user specified by ID. |
 
 ## createUser
 
@@ -50,10 +48,9 @@ example().catch(console.error);
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **createUser** | [CreateUser](CreateUser.md) |  | |
+| Name           | Type                        | Description | Notes |
+| -------------- | --------------------------- | ----------- | ----- |
+| **createUser** | [CreateUser](CreateUser.md) |             |       |
 
 ### Return type
 
@@ -68,15 +65,14 @@ No authorization required
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | User(s) successfully created |  -  |
-| **500** | An unknown error occurred while attempting to retrieve the data. |  -  |
+
+| Status code | Description                                                      | Response headers |
+| ----------- | ---------------------------------------------------------------- | ---------------- |
+| **201**     | User(s) successfully created                                     | -                |
+| **500**     | An unknown error occurred while attempting to retrieve the data. | -                |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
 
 ## deleteUser
 
@@ -89,14 +85,11 @@ Endpoint for deleting an user.
 ### Example
 
 ```ts
-import {
-  Configuration,
-  UserApi,
-} from '';
+import { Configuration, UserApi } from '';
 import type { DeleteUserRequest } from '';
 
 async function example() {
-  console.log("🚀 Testing  SDK...");
+  console.log('🚀 Testing  SDK...');
   const api = new UserApi();
 
   const body = {
@@ -118,9 +111,8 @@ example().catch(console.error);
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
+| Name   | Type     | Description                     | Notes                     |
+| ------ | -------- | ------------------------------- | ------------------------- |
 | **id** | `string` | Unique identifier for the user. | [Defaults to `undefined`] |
 
 ### Return type
@@ -136,15 +128,14 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Default Response |  -  |
-| **404** | Invalid or missing data. |  -  |
+
+| Status code | Description              | Response headers |
+| ----------- | ------------------------ | ---------------- |
+| **204**     | Default Response         | -                |
+| **404**     | Invalid or missing data. | -                |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
 
 ## fetchAllUsers
 
@@ -155,14 +146,11 @@ Fetch All Users
 ### Example
 
 ```ts
-import {
-  Configuration,
-  UserApi,
-} from '';
+import { Configuration, UserApi } from '';
 import type { FetchAllUsersRequest } from '';
 
 async function example() {
-  console.log("🚀 Testing  SDK...");
+  console.log('🚀 Testing  SDK...');
   const api = new UserApi();
 
   try {
@@ -194,16 +182,15 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Default Response |  -  |
-| **404** | Invalid or missing data. |  -  |
-| **500** | An unknown error occurred while attempting to retrieve the data. |  -  |
+
+| Status code | Description                                                      | Response headers |
+| ----------- | ---------------------------------------------------------------- | ---------------- |
+| **200**     | Default Response                                                 | -                |
+| **404**     | Invalid or missing data.                                         | -                |
+| **500**     | An unknown error occurred while attempting to retrieve the data. | -                |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
 
 ## fetchUser
 
@@ -214,14 +201,11 @@ Returns a user by ID or the user currently logged in.
 ### Example
 
 ```ts
-import {
-  Configuration,
-  UserApi,
-} from '';
+import { Configuration, UserApi } from '';
 import type { FetchUserRequest } from '';
 
 async function example() {
-  console.log("🚀 Testing  SDK...");
+  console.log('🚀 Testing  SDK...');
   const api = new UserApi();
 
   const body = {
@@ -243,9 +227,8 @@ example().catch(console.error);
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
+| Name       | Type     | Description                       | Notes                     |
+| ---------- | -------- | --------------------------------- | ------------------------- |
 | **userId** | `string` | The unique identifier for a User. | [Defaults to `undefined`] |
 
 ### Return type
@@ -261,16 +244,15 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Default Response |  -  |
-| **404** | Invalid or missing data. |  -  |
-| **500** | An unknown error occurred while attempting to retrieve the data. |  -  |
+
+| Status code | Description                                                      | Response headers |
+| ----------- | ---------------------------------------------------------------- | ---------------- |
+| **200**     | Default Response                                                 | -                |
+| **404**     | Invalid or missing data.                                         | -                |
+| **500**     | An unknown error occurred while attempting to retrieve the data. | -                |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
 
 ## updateUser
 
@@ -312,11 +294,10 @@ example().catch(console.error);
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `string` | Unique identifier for the user. | [Defaults to `undefined`] |
-| **user** | [User](User.md) |  | |
+| Name     | Type            | Description                     | Notes                     |
+| -------- | --------------- | ------------------------------- | ------------------------- |
+| **id**   | `string`        | Unique identifier for the user. | [Defaults to `undefined`] |
+| **user** | [User](User.md) |                                 |                           |
 
 ### Return type
 
@@ -331,12 +312,11 @@ No authorization required
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Default Response |  -  |
-| **404** | Invalid or missing data. |  -  |
+
+| Status code | Description              | Response headers |
+| ----------- | ------------------------ | ---------------- |
+| **200**     | Default Response         | -                |
+| **404**     | Invalid or missing data. | -                |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-

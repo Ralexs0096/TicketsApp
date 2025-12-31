@@ -6,14 +6,14 @@ export const authQueryOptions = queryOptions({
   queryFn: async () => {
     try {
       return await apiClient.user.fetchUser({
-        userId: 'me'
+        userId: 'me',
       });
     } catch {
       return {
-        user: null
+        user: null,
       };
     }
   },
   staleTime: Infinity,
-  gcTime: Infinity
+  gcTime: Infinity,
 });

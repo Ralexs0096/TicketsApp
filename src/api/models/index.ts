@@ -1,5 +1,5 @@
 /* tslint:disable */
-/* eslint-disable */
+
 export * from './Area';
 export * from './AreaRequestParams';
 export * from './Brand';

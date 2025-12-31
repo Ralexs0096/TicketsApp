@@ -6,9 +6,9 @@ import {
   IconButton,
   Typography,
   Box,
-} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import { ReactNode } from "react";
+} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import { ReactNode } from 'react';
 
 interface ModalComponentProps {
   open: boolean;
@@ -16,7 +16,7 @@ interface ModalComponentProps {
   title?: string;
   children: ReactNode;
   actions?: ReactNode;
-  maxWidth?: "xs" | "sm" | "md" | "lg" | "xl";
+  maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   fullWidth?: boolean;
   disableBackdropClick?: boolean;
 }
@@ -27,7 +27,7 @@ export const ModalComponent = ({
   title,
   children,
   actions,
-  maxWidth = "sm",
+  maxWidth = 'sm',
   fullWidth = true,
   disableBackdropClick = false,
 }: ModalComponentProps) => {

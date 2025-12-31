@@ -11,13 +11,13 @@ const AppBarComponent = () => {
         border: 1,
         borderRadius: 2,
         borderColor: 'gray',
-        boxShadow: 'none'
+        boxShadow: 'none',
       }}
     >
       <Toolbar
         sx={{
           display: 'flex',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
         }}
       >
         <IconButton

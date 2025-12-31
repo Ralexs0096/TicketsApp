@@ -4,7 +4,7 @@ import {
   BrandApi,
   AuthApi,
   AreaApi,
-  TicketApi
+  TicketApi,
 } from './api';
 
 const config = new Configuration({
@@ -12,7 +12,7 @@ const config = new Configuration({
   fetchApi: async (input, init = {}) => {
     init.credentials = 'include';
     return fetch(input, init);
-  }
+  },
 });
 
 export const apiClient = {
@@ -20,5 +20,5 @@ export const apiClient = {
   brand: new BrandApi(config),
   area: new AreaApi(config),
   auth: new AuthApi(config),
-  ticket: new TicketApi(config)
+  ticket: new TicketApi(config),
 };

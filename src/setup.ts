@@ -3,9 +3,8 @@ import matchers from '@testing-library/jest-dom/matchers';
 import { expect } from 'vitest';
 
 declare module 'vitest' {
-  interface Assertion<T = any>
-    extends jest.Matchers<void, T>,
-      TestingLibraryMatchers<T, void> {}
+  interface Assertion<T = any> // eslint-disable-line @typescript-eslint/no-explicit-any
+    extends jest.Matchers<void, T>, TestingLibraryMatchers<T, void> {}
 }
 
 expect.extend(matchers);

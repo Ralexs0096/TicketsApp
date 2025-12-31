@@ -1,15 +1,13 @@
 # AreaApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to _http://localhost:8080_
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**createArea**](AreaApi.md#createarea) | **POST** /area | Create a new Area. |
-| [**deleteArea**](AreaApi.md#deletearea) | **DELETE** /area/{id} | Delete an Area or some Areas at the same time |
-| [**fetchAllAreas**](AreaApi.md#fetchallareas) | **GET** /area | Fetch All Areas |
-| [**updateArea**](AreaApi.md#updatearea) | **PUT** /area/{id} | Update an Area. |
-
-
+| Method                                        | HTTP request          | Description                                   |
+| --------------------------------------------- | --------------------- | --------------------------------------------- |
+| [**createArea**](AreaApi.md#createarea)       | **POST** /area        | Create a new Area.                            |
+| [**deleteArea**](AreaApi.md#deletearea)       | **DELETE** /area/{id} | Delete an Area or some Areas at the same time |
+| [**fetchAllAreas**](AreaApi.md#fetchallareas) | **GET** /area         | Fetch All Areas                               |
+| [**updateArea**](AreaApi.md#updatearea)       | **PUT** /area/{id}    | Update an Area.                               |
 
 ## createArea
 
@@ -49,10 +47,9 @@ example().catch(console.error);
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **createArea** | [CreateArea](CreateArea.md) |  | |
+| Name           | Type                        | Description | Notes |
+| -------------- | --------------------------- | ----------- | ----- |
+| **createArea** | [CreateArea](CreateArea.md) |             |       |
 
 ### Return type
 
@@ -67,15 +64,14 @@ No authorization required
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Default Response |  -  |
-| **500** | Invalid or missing Area data. |  -  |
+
+| Status code | Description                   | Response headers |
+| ----------- | ----------------------------- | ---------------- |
+| **200**     | Default Response              | -                |
+| **500**     | Invalid or missing Area data. | -                |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
 
 ## deleteArea
 
@@ -117,11 +113,10 @@ example().catch(console.error);
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `string` | Unique identifier for the area. | [Defaults to `undefined`] |
-| **area** | [Area](Area.md) |  | |
+| Name     | Type            | Description                     | Notes                     |
+| -------- | --------------- | ------------------------------- | ------------------------- |
+| **id**   | `string`        | Unique identifier for the area. | [Defaults to `undefined`] |
+| **area** | [Area](Area.md) |                                 |                           |
 
 ### Return type
 
@@ -136,16 +131,15 @@ No authorization required
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Default Response |  -  |
-| **404** | Invalid or missing Area data. |  -  |
-| **500** | An unknown error occurred when trying to delete areas. |  -  |
+
+| Status code | Description                                            | Response headers |
+| ----------- | ------------------------------------------------------ | ---------------- |
+| **201**     | Default Response                                       | -                |
+| **404**     | Invalid or missing Area data.                          | -                |
+| **500**     | An unknown error occurred when trying to delete areas. | -                |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
 
 ## fetchAllAreas
 
@@ -156,14 +150,11 @@ Fetch All Areas
 ### Example
 
 ```ts
-import {
-  Configuration,
-  AreaApi,
-} from '';
+import { Configuration, AreaApi } from '';
 import type { FetchAllAreasRequest } from '';
 
 async function example() {
-  console.log("🚀 Testing  SDK...");
+  console.log('🚀 Testing  SDK...');
   const api = new AreaApi();
 
   try {
@@ -195,15 +186,14 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Default Response |  -  |
-| **500** | An unknown error occurred while attempting to retrieve the data. |  -  |
+
+| Status code | Description                                                      | Response headers |
+| ----------- | ---------------------------------------------------------------- | ---------------- |
+| **201**     | Default Response                                                 | -                |
+| **500**     | An unknown error occurred while attempting to retrieve the data. | -                |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
 
 ## updateArea
 
@@ -245,11 +235,10 @@ example().catch(console.error);
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `string` | Unique identifier for the area. | [Defaults to `undefined`] |
-| **area** | [Area](Area.md) |  | |
+| Name     | Type            | Description                     | Notes                     |
+| -------- | --------------- | ------------------------------- | ------------------------- |
+| **id**   | `string`        | Unique identifier for the area. | [Defaults to `undefined`] |
+| **area** | [Area](Area.md) |                                 |                           |
 
 ### Return type
 
@@ -264,12 +253,11 @@ No authorization required
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Default Response |  -  |
-| **404** | Invalid or missing Area data. |  -  |
+
+| Status code | Description                   | Response headers |
+| ----------- | ----------------------------- | ---------------- |
+| **201**     | Default Response              | -                |
+| **404**     | Invalid or missing Area data. | -                |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-

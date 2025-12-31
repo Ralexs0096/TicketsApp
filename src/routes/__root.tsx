@@ -11,7 +11,7 @@ const RootLayout = () => (
       borderRadius: 5,
       padding: 2,
       backgroundColor: '#F9FAFB',
-      height: '100vh'
+      height: '100vh',
     }}
   >
     <Outlet />
@@ -25,5 +25,5 @@ export const Route = createRootRouteWithContext<{
   loader: ({ context }) => {
     return context.queryClient.ensureQueryData(authQueryOptions);
   },
-  component: () => <RootLayout />
+  component: () => <RootLayout />,
 });

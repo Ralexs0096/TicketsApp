@@ -9,10 +9,10 @@ export const Route = createFileRoute('/_authenticated')({
       throw redirect({
         to: '/login',
         search: {
-          redirect: location.href
-        }
+          redirect: location.href,
+        },
       });
     }
   },
-  component: () => <Outlet />
+  component: () => <Outlet />,
 });

@@ -13,6 +13,6 @@ export function getAllTickets() {
       }
     },
     staleTime: Infinity,
-    gcTime: Infinity
+    gcTime: Infinity,
   });
 }

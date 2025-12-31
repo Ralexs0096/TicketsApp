@@ -1,15 +1,13 @@
 # BrandApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to _http://localhost:8080_
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**createBrand**](BrandApi.md#createbrand) | **POST** /brand | Create a new Brand. |
-| [**deleteBrand**](BrandApi.md#deletebrand) | **DELETE** /brand/{id} | Delete a Brand |
-| [**fetchAllBrands**](BrandApi.md#fetchallbrands) | **GET** /brand | Fetch All Brands |
-| [**updateBrand**](BrandApi.md#updatebrand) | **PUT** /brand/{id} | Update a Brand. |
-
-
+| Method                                           | HTTP request           | Description         |
+| ------------------------------------------------ | ---------------------- | ------------------- |
+| [**createBrand**](BrandApi.md#createbrand)       | **POST** /brand        | Create a new Brand. |
+| [**deleteBrand**](BrandApi.md#deletebrand)       | **DELETE** /brand/{id} | Delete a Brand      |
+| [**fetchAllBrands**](BrandApi.md#fetchallbrands) | **GET** /brand         | Fetch All Brands    |
+| [**updateBrand**](BrandApi.md#updatebrand)       | **PUT** /brand/{id}    | Update a Brand.     |
 
 ## createBrand
 
@@ -51,10 +49,9 @@ example().catch(console.error);
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **createBrand** | [CreateBrand](CreateBrand.md) |  | |
+| Name            | Type                          | Description | Notes |
+| --------------- | ----------------------------- | ----------- | ----- |
+| **createBrand** | [CreateBrand](CreateBrand.md) |             |       |
 
 ### Return type
 
@@ -69,15 +66,14 @@ No authorization required
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Brand(s) successfully created |  -  |
-| **500** | An unknown error occurred when trying to create a Brand. |  -  |
+
+| Status code | Description                                              | Response headers |
+| ----------- | -------------------------------------------------------- | ---------------- |
+| **201**     | Brand(s) successfully created                            | -                |
+| **500**     | An unknown error occurred when trying to create a Brand. | -                |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
 
 ## deleteBrand
 
@@ -90,14 +86,11 @@ Endpoint for deleting a brand.
 ### Example
 
 ```ts
-import {
-  Configuration,
-  BrandApi,
-} from '';
+import { Configuration, BrandApi } from '';
 import type { DeleteBrandRequest } from '';
 
 async function example() {
-  console.log("🚀 Testing  SDK...");
+  console.log('🚀 Testing  SDK...');
   const api = new BrandApi();
 
   const body = {
@@ -119,9 +112,8 @@ example().catch(console.error);
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
+| Name   | Type     | Description                      | Notes                     |
+| ------ | -------- | -------------------------------- | ------------------------- |
 | **id** | `string` | Unique identifier for the brand. | [Defaults to `undefined`] |
 
 ### Return type
@@ -137,15 +129,14 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Invalid or missing Brand. |  -  |
-| **500** | An unknown error occurred when trying to delete a brand. |  -  |
+
+| Status code | Description                                              | Response headers |
+| ----------- | -------------------------------------------------------- | ---------------- |
+| **404**     | Invalid or missing Brand.                                | -                |
+| **500**     | An unknown error occurred when trying to delete a brand. | -                |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
 
 ## fetchAllBrands
 
@@ -156,14 +147,11 @@ Fetch All Brands
 ### Example
 
 ```ts
-import {
-  Configuration,
-  BrandApi,
-} from '';
+import { Configuration, BrandApi } from '';
 import type { FetchAllBrandsRequest } from '';
 
 async function example() {
-  console.log("🚀 Testing  SDK...");
+  console.log('🚀 Testing  SDK...');
   const api = new BrandApi();
 
   try {
@@ -195,15 +183,14 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
 
-
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Invalid or missing Brand data. |  -  |
-| **500** | An unknown error occurred when trying to fetch brands. |  -  |
+
+| Status code | Description                                            | Response headers |
+| ----------- | ------------------------------------------------------ | ---------------- |
+| **404**     | Invalid or missing Brand data.                         | -                |
+| **500**     | An unknown error occurred when trying to fetch brands. | -                |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
 
 ## updateBrand
 
@@ -245,11 +232,10 @@ example().catch(console.error);
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | `string` | Unique identifier for the brand. | [Defaults to `undefined`] |
-| **brand** | [Brand](Brand.md) |  | |
+| Name      | Type              | Description                      | Notes                     |
+| --------- | ----------------- | -------------------------------- | ------------------------- |
+| **id**    | `string`          | Unique identifier for the brand. | [Defaults to `undefined`] |
+| **brand** | [Brand](Brand.md) |                                  |                           |
 
 ### Return type
 
@@ -264,13 +250,12 @@ No authorization required
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
-
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Default Response |  -  |
-| **404** | Invalid or missing Brand data. |  -  |
-| **500** | An unknown error occurred when trying to update brands. |  -  |
+
+| Status code | Description                                             | Response headers |
+| ----------- | ------------------------------------------------------- | ---------------- |
+| **200**     | Default Response                                        | -                |
+| **404**     | Invalid or missing Brand data.                          | -                |
+| **500**     | An unknown error occurred when trying to update brands. | -                |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-

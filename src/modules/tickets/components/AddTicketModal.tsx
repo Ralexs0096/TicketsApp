@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { ModalComponent } from "../../../components/shared/ModalComponent";
+import { FC } from 'react';
+import { ModalComponent } from '../../../components/shared/ModalComponent';
 
 interface AddTicketModalProps {
   open: boolean;

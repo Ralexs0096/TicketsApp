@@ -1,9 +1,9 @@
-import { Box, CardContent } from "@mui/material";
-import Card from "@mui/material/Card";
+import { Box, CardContent } from '@mui/material';
+import Card from '@mui/material/Card';
 
 interface CardWrapperProps {
   children: JSX.Element | JSX.Element[];
-  variant?: "outlined" | "elevation";
+  variant?: 'outlined' | 'elevation';
   isCenter?: boolean;
   heightCard?: string | number;
   widthCard?: string | number;
@@ -11,7 +11,7 @@ interface CardWrapperProps {
 
 const CardWrapper: React.FC<CardWrapperProps> = ({
   children,
-  variant = "outlined",
+  variant = 'outlined',
   isCenter,
   heightCard,
   widthCard,
@@ -20,9 +20,9 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
     <Box
       sx={{
         ...(isCenter && {
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }),
       }}
     >
